@@ -1,25 +1,31 @@
 metadata:
-  id: dockersamples/labspace-compose-quickstart
+  id: compose-quickstart
   sourceRepo: github.com/dockersamples/labspace-compose-quickstart
   contentVersion: abcd123 # Will be filled in during CI
 
-title: Compose Quickstart
-description: |
-  A basic template for creating a Labspace, including all of the boilerplate needed to write and publish a Labspace.
+title: Docker Compose Quickstart
+description: Build a multi-container Flask and Redis application from scratch using Docker Compose.
 
 sections:
   - title: Introduction
-    contentPath: .labspace/01-introduction.md
-  - title: Main Content 1
-    contentPath: .labspace/02-main-content.md
-  - title: Conclusion
-    contentPath: .labspace/03-conclusion.md
+    contentPath: 01-introduction.md
+  - title: Defining Services
+    contentPath: 02-defining-services.md
+  - title: Health Checks & Startup Order
+    contentPath: 03-health-checks.md
+  - title: Live Development with Watch Mode
+    contentPath: 04-watch-mode.md
+  - title: Persistence & Debugging
+    contentPath: 05-persistence-and-debugging.md
+  - title: Using Multiple Compose Files
+    contentPath: 06-multiple-compose-files.md
+  - title: Additional Commands
+    contentPath: 07-additional-commands.md
+  - title: Recap
+    contentPath: 08-recap.md
 
-# Services are used to add default tabs in the Labspace interface.
-# The IDE will always be present as a service, but you can add additional services as needed.
-# Icon values come from https://fonts.google.com/icons/
 services:
   - id: app
-    url: http://localhost:3000
-    title: App
-    icon: anchor
+    title: Flask App
+    url: http://localhost:8000
+    icon: web

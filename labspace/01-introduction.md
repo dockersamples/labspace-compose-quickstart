@@ -1,21 +1,49 @@
-# Introduction
+# Welcome to Docker Compose Quickstart! 🐳
 
-👋 Welcome to the **Labspace starter** lab! During this lab, you will learn to do the following:
+Docker Compose is a tool for defining and running multi-container applications. Instead of managing each container by hand, you describe your entire application stack in a single `compose.yaml` file and bring everything up with one command.
 
-- Learning Objective 1
-- Learning Objective 2
-- Learning Objective 3
-- Learning Objective 4
+In this lab, you'll build a **Python Flask web app** backed by **Redis** — a classic multi-container setup. Along the way, you'll learn how to:
 
+- Define services in a `compose.yaml` file
+- Control startup order with health checks
+- Iterate on code quickly with watch mode
+- Persist data across container restarts
 
-## 🙋 What is a Labspace again?
+## Verify your environment
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia nisi sit amet auctor accumsan. Maecenas suscipit, libero quis ullamcorper pulvinar, dolor nisl vehicula orci, vel egestas arcu nibh eget enim. 
+Before diving in, confirm that Docker and Compose are available:
 
-Suspendisse potenti. Pellentesque eleifend eget ante eu egestas. 
+```bash
+docker version
+```
 
-Nunc sit amet dapibus erat. Aliquam diam arcu, fringilla hendrerit metus sed, pellentesque fringilla lacus. 
+```bash
+docker compose version
+```
 
-Nulla ornare nulla risus. Curabitur ut ipsum euismod, accumsan lorem eu, pretium lorem. Fusce imperdiet fermentum hendrerit.
+You should see version information for both. If either command fails, the environment may need a moment to initialize — try again in a few seconds.
 
+## Tour the starter files
 
+The project already contains everything needed to build and run the app. Take a look:
+
+```bash
+ls -la
+```
+
+| File | Purpose |
+|------|---------|
+| `app.py` | The Flask web application |
+| `requirements.txt` | Python dependencies |
+| `Dockerfile` | Instructions to build the container image |
+| `.env` | Default environment variable values |
+| `.dockerignore` | Files to exclude from the build context |
+
+Open :fileLink[app.py]{path="app.py"} to see the application code. It's a simple hit counter that increments a value in Redis each time someone visits the page, and reports the total back to the browser.
+
+Open :fileLink[Dockerfile]{path="Dockerfile"} to see how the image is built. It starts from the official `python:3.12-alpine` base, installs dependencies, copies the source code, and runs Flask.
+
+> [!NOTE]
+> Notice that `.env` is listed in `.dockerignore`. This prevents the `.env` file from being copied into the container image during `docker build` — a good security practice, since `.env` files often contain secrets.
+
+In the next section, you'll connect these pieces together using Docker Compose.
