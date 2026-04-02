@@ -1,5 +1,5 @@
 metadata:
-  id: compose-quickstart
+  id: dockersamples/compose-quickstart
   sourceRepo: github.com/dockersamples/labspace-compose-quickstart
   contentVersion: abcd123 # Will be filled in during CI
 
