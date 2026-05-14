@@ -41,7 +41,7 @@ ls -la
 
 Open :fileLink[app.py]{path="app.py"} to see the application code. It's a simple hit counter that increments a value in Redis each time someone visits the page, and reports the total back to the browser.
 
-Open :fileLink[Dockerfile]{path="Dockerfile"} to see how the image is built. It starts from the official `python:3.12-alpine` base, installs dependencies, copies the source code, and runs Flask.
+Open :fileLink[Dockerfile]{path="Dockerfile"} to see how the image is built. It starts from the official `python:3.14-alpine` base, installs dependencies, copies the source code, and runs Flask.
 
 > [!NOTE]
 > Notice that `.env` is listed in `.dockerignore`. This prevents the `.env` file from being copied into the container image during `docker build` — a good security practice, since `.env` files often contain secrets.

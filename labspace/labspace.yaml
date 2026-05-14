@@ -29,3 +29,7 @@ services:
     title: Flask App
     url: http://localhost:8000
     icon: web
+
+variables:
+  redisImageTag: 8.6-alpine
+  

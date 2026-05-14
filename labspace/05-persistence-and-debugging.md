@@ -29,7 +29,7 @@ Your hit counter still resets to zero when containers are removed. That's becaus
               path: requirements.txt
 
       redis:
-        image: redis:alpine
+        image: redis:$$redisImageTag$$
         healthcheck:
           test: ["CMD", "redis-cli", "ping"]
           interval: 5s

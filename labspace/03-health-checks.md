@@ -27,7 +27,7 @@ services:
         condition: service_healthy
 
   redis:
-    image: redis:alpine
+    image: redis:$$redisImageTag$$
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 5s

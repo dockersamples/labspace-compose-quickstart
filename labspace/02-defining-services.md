@@ -29,7 +29,7 @@ flowchart LR
           - REDIS_PORT=${REDIS_PORT:-6379}
 
       redis:
-        image: redis:alpine
+        image: redis:$$redisImageTag$$
     ```
 
     > [!TIP]
@@ -52,9 +52,9 @@ flowchart LR
     You should see output similar to the following:
 
     ```console no-copy-button no-run-button
-    NAME              IMAGE          COMMAND                  SERVICE   CREATED         STATUS         PORTS
-    project-redis-1   redis:alpine   "docker-entrypoint.s…"   redis     5 seconds ago   Up 4 seconds   6379/tcp
-    project-web-1     project-web    "flask run --host=0.…"   web       5 seconds ago   Up 4 seconds   0.0.0.0:8000->5000/tcp, [::]:8000->5000/tcp
+    NAME              IMAGE              COMMAND                  SERVICE   CREATED         STATUS         PORTS
+    project-redis-1   redis:$$redisImageTag$$   "docker-entrypoint.s…"   redis     5 seconds ago   Up 4 seconds   6379/tcp
+    project-web-1     project-web        "flask run --host=0.…"   web       5 seconds ago   Up 4 seconds   0.0.0.0:8000->5000/tcp, [::]:8000->5000/tcp
     ```
 
 4. View the app by opening your browser to :tabLink[http://localhost:8000]{href="http://localhost:8000" title="Flask App" id="app"}

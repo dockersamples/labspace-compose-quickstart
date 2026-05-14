@@ -43,7 +43,7 @@ For this app:
               path: requirements.txt
 
       redis:
-        image: redis:alpine
+        image: redis:$$redisImageTag$$
         healthcheck:
           test: ["CMD", "redis-cli", "ping"]
           interval: 5s
@@ -70,7 +70,7 @@ With the watcher running, save an updated version of `app.py` with a different r
 ```python save-as=app.py
 import os
 
-from flask import Flask
+from flask import Flask, render_template
 from redis import Redis
 
 app = Flask(__name__)
@@ -84,7 +84,8 @@ redis = Redis(
 @app.route("/")
 def hello():
     count = redis.incr("hits")
-    return f"Hello from Docker! You've visited {count} time(s) — keep it up!\n"
+    message = "Keep it up!"
+    return render_template("index.html", count=count, message=message)
 ```
 
 Watch the `watcher` terminal — Compose detects the change, syncs `app.py` into the running container, and restarts the Flask process automatically.

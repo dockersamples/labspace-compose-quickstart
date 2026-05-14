@@ -9,7 +9,7 @@ This is especially useful when different teams own different parts of the stack,
     ```yaml save-as=infra.yaml
     services:
       redis:
-        image: redis:alpine
+        image: redis:$$redisImageTag$$
         volumes:
           - redis-data:/data
         healthcheck:

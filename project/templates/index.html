@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docker Compose Quickstart</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0b1929;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #e4eaf0;
+    }
+
+    .card {
+      background: #132338;
+      border: 1px solid #1d3557;
+      border-radius: 16px;
+      padding: 48px 56px;
+      text-align: center;
+      max-width: 460px;
+      width: 90%;
+      box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    }
+
+    .whale {
+      font-size: 72px;
+      line-height: 1;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 4px 12px rgba(36,150,237,.4));
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #2496ed;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #7a9bb8;
+      margin-bottom: 36px;
+    }
+
+    .counter-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #7a9bb8;
+      margin-bottom: 8px;
+    }
+
+    .counter {
+      font-size: 4rem;
+      font-weight: 800;
+      color: #2496ed;
+      line-height: 1;
+      text-shadow: 0 0 24px rgba(36,150,237,.35);
+    }
+
+    .counter-unit {
+      font-size: 1rem;
+      color: #7a9bb8;
+      margin-top: 6px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #1d3557;
+      margin: 32px 0;
+    }
+
+    .footer {
+      font-size: 0.8rem;
+      color: #4a6a88;
+    }
+
+    .footer span {
+      color: #2496ed;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="whale">🐳</div>
+    <h1>Hello from Docker!</h1>
+    <p class="subtitle">{{ message }}</p>
+
+    <div class="counter-label">Page visits</div>
+    <div class="counter">{{ count }}</div>
+    <div class="counter-unit">hit{{ 's' if count != 1 else '' }}</div>
+
+    <hr class="divider" />
+    <p class="footer">Powered by <span>Flask</span> &amp; <span>Redis</span> on Docker Compose</p>
+  </div>
+</body>
+</html>

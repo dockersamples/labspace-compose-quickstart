@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, render_template
 from redis import Redis
 
 app = Flask(__name__)
@@ -14,4 +14,5 @@ redis = Redis(
 @app.route("/")
 def hello():
     count = redis.incr("hits")
-    return f"Hello from Docker! I have been seen {count} time(s).\n"
+    message = "Your containerized app is running?"
+    return render_template("index.html", count=count, message=message)
