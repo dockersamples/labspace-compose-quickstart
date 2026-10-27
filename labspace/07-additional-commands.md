@@ -23,10 +23,10 @@ docker compose logs -f web
 ## Inspect a running container
 
 ```bash
-docker compose exec redis redis-cli
+docker compose exec -it redis redis-cli -h redis
 ```
 
-This drops you into an interactive Redis CLI session inside the running `redis` container. Try these commands to inspect the stored data:
+This drops you into an interactive Redis CLI session inside the running `redis` container. (`-it` attaches an interactive terminal, and `-h redis` points `redis-cli` at the Redis service rather than the local loopback, which otherwise hangs in environments without a TTY.) Try these commands to inspect the stored data:
 
 ```bash no-run-button
 KEYS *
